@@ -1,0 +1,9 @@
+put the following command when the time machine backup stuck:
+
+Unload spotlight first:
+
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+
+After the backup completes, load the spotlight again
+
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.pli
