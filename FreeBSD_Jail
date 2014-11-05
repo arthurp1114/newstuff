@@ -1,2 +1,5 @@
 jls to list the virtual machine and the jid along with the vm
 jexec jid tcsh (sh, csh) --> to enter the virutal machine with that vm using the shell designated.
+
+http://book.51cto.com/art/201208/354263.htm
+http://dullstupid.pixnet.net/blog/post/24379753-jail-in-freebsd-5.3%28%E4%BA%8C%29
