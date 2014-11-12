@@ -1,0 +1,29 @@
+After extracting magento v1.8 to a specific directory and trying to install script from http://magentosite/index.php
+then got this error message similar to the following:
+
+PHP Warning:  file_exists() [<a href='function.file-exists'>function.file-exists</a>]: 
+open_basedir restriction in effect. File(/tmp/magento/var) is not within the allowed path(s): 
+(/blah/blah/website.com:/usr/share/pear:/var/www/error) in 
+/blah/blah/website.com/app/code/core/Mage/Core/Model/Config/Options.php on line 214
+
+To fix it, open and edit Options.php and go to the function:
+
+public function getSysTmpDir()
+
+    {
+
+        return sys_get_temp_dir();
+
+    }
+    
+Modify this function to make it like this:
+
+public function getSysTmpDir()
+
+    {
+
+        return $_SERVER['DOCUMENT_ROOT'].'/your_secret_tmp_dir/';
+
+    }
+    
+This works in v1.8, but in v1.9, there are lots more other error messages...
