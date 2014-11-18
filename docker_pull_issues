@@ -1,0 +1,7 @@
+Got this error when trying to pull images in docker under UBUNTU 14.:
+
+  Get https://index.docker.io/v1/repositories/ubuntu/images: dial tcp: lookup index.docker.io: no DNS servers
+
+To fix this issue:
+
+  sudo aptitude remove bind9 resolvconf 
