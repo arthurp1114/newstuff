@@ -4,4 +4,7 @@ Got this error when trying to pull images in docker under UBUNTU 14.:
 
 To fix this issue:
 
-  sudo aptitude remove bind9 resolvconf 
+  sudo aptitude remove bind9 resolvconf then create /etc/resolv.conf
+  
+
+
