@@ -1,0 +1,5 @@
+1. Got an error message "centos configure: error: Cannot find OpenSSL's <evp.h>" during installation pmpx
+    solution: install openssl-devel by using "yum install openssl-devel"
+  
+2. Got an error message like "mcrypt not installed"...
+    soultion: download libmcrpt from ftp://mcrypt.hellug.gr/pub/crypto/mcrypt/libmcrypt/ and compile it manually
