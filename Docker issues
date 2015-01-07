@@ -1,0 +1,4 @@
+Using nsenter to enter specific container:
+  sudo docker ps -a
+  sudo docker inspect --format "{{ .State.Pid }}" <container-id> --> This will return a PID for the next $PID
+  sudo nsenter --target $PID --mount --uts --ipc --net --pid
