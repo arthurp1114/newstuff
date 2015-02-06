@@ -36,3 +36,27 @@ To fix this, chmod to 777 for the following file and directories:
 /var/.htaccess
 /app/etc
 /var
+
+
+Magento got problems like this after installation:
+
+Magento install error - Exception printing is disabled:
+
+There has been an error processing your request
+Exception printing is disabled by default for security reasons.
+Error log record number: XXXXXXXXXXXXXXX 
+
+To fix this:
+
+    Navigate to the "errors" folder.
+    Change local.xml.sample to local.xml
+    You should now see a new list of crazy errors all over the Magento page - this is okay.
+    Open magento/lib/Zend/Cache/Backend/File.php and look for:
+    protected $_options = array(
+    'cache_dir' => 'null',
+    Change it to:
+    protected $_options = array(
+    'cache_dir' => 'tmp/',
+    Save it.
+    Now the final step is to go create a tmp folder in the root Magento folder.
+    That's it.
