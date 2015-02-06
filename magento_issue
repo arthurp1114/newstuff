@@ -26,4 +26,13 @@ public function getSysTmpDir()
 
     }
     
-This works in v1.8, but in v1.9, there are lots more other error messages...
+
+Another one --
+
+PHP Fatal error:  Call to a member function getModelInstance() on a non-object in /blah/blah/website.com/magento/app/Mage.php on line 463"
+
+To fix this, chmod to 777 for the following file and directories:
+
+/var/.htaccess
+/app/etc
+/var
