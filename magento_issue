@@ -60,3 +60,25 @@ To fix this:
     Save it.
     Now the final step is to go create a tmp folder in the root Magento folder.
     That's it.
+
+Disable Magento Compiler for Unix like shell:
+
+chmod o+w includes includes/config.php
+chmod -R 777 includes/
+
+Modify : To close the compilation mode, open the file includes/config.php and comment out the following line :
+
+    define(』COMPILER_INCLUDE_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR.』src'); 
+    #define(』COMPILER_COLLECT_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR.』stat');
+    
+    to
+    
+    #define(』COMPILER_INCLUDE_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR.』src');
+    #define(』COMPILER_COLLECT_PATH', dirname(__FILE__).DIRECTORY_SEPARATOR.』stat');
+
+Or go to magento $ROOT/shell
+    
+    php -f compiler.php clear
+    php -f compiler.php disable
+
+    
