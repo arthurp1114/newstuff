@@ -2,3 +2,14 @@ Using nsenter to enter specific container:
   sudo docker ps -a
   sudo docker inspect --format "{{ .State.Pid }}" <container-id> --> This will return a PID for the next $PID
   sudo nsenter --target $PID --mount --uts --ipc --net --pid
+
+
+Private Registry:
+  Got erros like "v1 ping attempt failed with error: Get https://xxx.xxx.xxx.xxx:xxxx/v1/_ping: EOF.
+                  If this private registry supports only HTTP or HTTPS with an unknown CA certificate, 
+                  please add `--insecure-registry 74.208.174.3:5000` to the daemon's arguments. In the case 
+                  of HTTPS, if you have access to the registry's CA certificate, no need for the flag; 
+                  simply place the CA certificate at /etc/docker/certs.d/74.208.174.3:5000/ca.crt" during the push process.
+  Solution:
+    Go to modify /etc/sysconfig/docker and add this:
+    other_args="--insecure-registry xxx.xxx.xxx.xxx:xxxx" at the client machine then restart the docker service.
